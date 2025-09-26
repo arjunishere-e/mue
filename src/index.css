@@ -1,0 +1,230 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #f5f7ff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100vw;
+  background: #f5f7ff;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #f5f7ff;
+  position: relative;
+}
+
+.sidebar {
+  width: 220px;
+  background: #fff;
+  border-right: 1px solid #eaeaea;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 0 16px 0;
+  margin: 0;
+  position: fixed;   /* Fixed sidebar */
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 100;
+}
+.sidebar-logo {
+  padding: 24px 0 16px 0;
+  text-align: center;
+}
+.logo-text {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #3a6cf6;
+  letter-spacing: 2px;
+}
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar-nav li {
+  display: flex;
+  align-items: center;
+  padding: 12px 24px;
+  font-size: 1rem;
+  color: #222;
+  cursor: pointer;
+  gap: 16px;
+  transition: background 0.2s;
+}
+.sidebar-nav li:hover {
+  background: #f0f4ff;
+}
+.sidebar-logout {
+  padding: 12px 24px;
+}
+.sidebar-logout button {
+  width: 100%;
+  background: #ffeaea;
+  color: #ff4d4f;
+  border: none;
+  padding: 10px;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.sidebar-footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #aaa;
+  margin-top: 16px;
+}
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 220px;
+  min-height: 100vh;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 32px 0 32px;
+  background: #f5f7ff;
+}
+
+.navbar-greeting {
+  font-size: 1.2rem;
+  color: #222;
+  font-style: italic;
+}
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.navbar-coder {
+  background: #3a6cf6;
+  color: #fff;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 24px;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.navbar-level {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.navbar-level-badge {
+  background: #f7b500;
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+.navbar-level-progress {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.navbar-level-progress-bar {
+  height: 8px;
+  width: 40px;
+  background: #eaeaea;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+.navbar-level-progress-bar::after {
+  content: '';
+  display: block;
+  height: 100%;
+  background: #3a6cf6;
+  width: 20%;
+  border-radius: 8px;
+}
+.navbar-level-progress-text {
+  font-size: 0.9rem;
+  color: #222;
+}
+.navbar-profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #eaeaea;
+}
+.page-content {
+  flex: 1;
+  padding: 24px 32px;
+  overflow-y: auto;
+  min-height: 100vh;
+  background: transparent;
+}
