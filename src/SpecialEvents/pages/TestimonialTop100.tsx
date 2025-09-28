@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion"; 
 import top100coders from "../assets/top-100.webp";
 import avatar1 from "../assets/avatar1.webp";
 import avatar2 from "../assets/avatar2.webp";
@@ -62,21 +63,27 @@ const testimonials = [
 ];
 
 const TestimonialTop100: React.FC = () => (
-  <div className={styles.pageContainer}>
+  <div className={styles.pageContainer} style={{ background: "#fff" }}>
+    {/* Event Header */}
     <div style={{ textAlign: "center", marginBottom: "2rem" }}>
-      <img
+      <motion.img
         src={top100coders}
         alt="Top 100 Coders Event"
         style={{ maxWidth: 320, borderRadius: 16 }}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
       />
-      <h1 style={{ margin: "1rem 0", color: "#2563eb" }}>
+      <h1 style={{ margin: "1rem 0", color: "#1f2937" }}>
         {eventDetails.title} - Testimonials
       </h1>
       <p
         style={{
-          color: "#111827",
+          color: "#374151",
           fontSize: "1.1rem",
           marginBottom: "1rem",
+          maxWidth: 700,
+          marginInline: "auto",
         }}
       >
         {eventDetails.description}
@@ -85,11 +92,33 @@ const TestimonialTop100: React.FC = () => (
         style={{
           marginBottom: "1rem",
           color: "#4B5563",
+          fontSize: "0.95rem",
         }}
       >
         <strong>Date:</strong> {eventDetails.date} <br />
         <strong>Location:</strong> {eventDetails.location} <br />
-        <strong>Organizer:</strong> {eventDetails.organizer}
+        <strong>Organizer:</strong> {eventDetails.organizer} <br />
+        <strong>Official Website:</strong>
+        <div style={{ marginTop: "0.5rem" }}>
+          <a
+            href="https://Top100series.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-block",
+              background: "#111827",
+              color: "#fff",
+              padding: "0.4rem 1rem",
+              borderRadius: 9999,
+              textDecoration: "none",
+              fontSize: "0.9rem",
+              fontWeight: 500,
+              transition: "all 0.2s ease",
+            }}
+          >
+            Visit Top100series.com ↗
+          </a>
+        </div>
       </div>
       <div style={{ marginBottom: "1.5rem" }}>
         <strong>Event Highlights:</strong>
@@ -98,7 +127,7 @@ const TestimonialTop100: React.FC = () => (
             listStyle: "disc",
             margin: "0.5rem auto",
             paddingLeft: 20,
-            color: "#2563eb",
+            color: "#111827",
             textAlign: "left",
             maxWidth: 400,
           }}
@@ -108,11 +137,13 @@ const TestimonialTop100: React.FC = () => (
           ))}
         </ul>
       </div>
-      <p style={{ color: "#111827" }}>
+      <p style={{ color: "#374151" }}>
         Hear from our participants, winners, volunteers, and speakers about
         their experience at the Top 100 Coders event.
       </p>
     </div>
+
+    {/* Testimonial Cards */}
     <div
       style={{
         display: "flex",
@@ -122,18 +153,26 @@ const TestimonialTop100: React.FC = () => (
       }}
     >
       {testimonials.map((t, idx) => (
-        <div
+        <motion.div
           key={idx}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: idx * 0.2 }}
+          whileHover={{
+            scale: 1.05,
+            boxShadow: "0 8px 20px rgba(0,0,0,0.15)",
+          }}
           style={{
             background: "#fff",
-            borderRadius: 12,
+            borderRadius: 16,
             boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
             padding: "1.5rem",
             maxWidth: 320,
             textAlign: "center",
+            transition: "all 0.3s ease",
           }}
         >
-          <img
+          <motion.img
             src={t.avatar}
             alt={t.name}
             style={{
@@ -143,17 +182,19 @@ const TestimonialTop100: React.FC = () => (
               marginBottom: 12,
               objectFit: "cover",
             }}
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.3 }}
           />
-          <h3 style={{ margin: "0.5rem 0", color: "#2563eb" }}>{t.name}</h3>
-          <span style={{ fontSize: "0.95rem", color: "#4B5563" }}>
+          <h3 style={{ margin: "0.5rem 0", color: "#111827" }}>{t.name}</h3>
+          <span style={{ fontSize: "0.95rem", color: "#6b7280" }}>
             {t.role} &mdash; <em>{t.achievement}</em>
           </span>
           <div style={{ margin: "0.5rem 0", color: "#f7b500" }}>
             {"★".repeat(t.rating)}
             {"☆".repeat(5 - t.rating)}
           </div>
-          <p style={{ marginTop: "1rem", color: "#111827" }}>{t.feedback}</p>
-        </div>
+          <p style={{ marginTop: "1rem", color: "#374151" }}>{t.feedback}</p>
+        </motion.div>
       ))}
     </div>
   </div>
